@@ -20,3 +20,17 @@ Sun, May 18, 2025 11:37:12 PM:
  tests:  7|1
 total_score: 55/70
 cb16eee
+Sun, May 18, 2025 11:39:51 PM: 
+ sudoku.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+Compilation failed
+In file included from test.c:5:0:
+sudoku.c: In function 'DFS':
+sudoku.c:133:35: error: 'current' undeclared (first use in this function)
+         List* adj = get_adj_nodes(current);
+                                   ^~~~~~~
+sudoku.c:133:35: note: each undeclared identifier is reported only once for each function it appears in
+sudoku.c:137:18: error: 'stack' undeclared (first use in this function)
+             push(stack, adj_node);
+                  ^~~~~
+17c34e5

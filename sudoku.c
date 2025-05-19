@@ -130,7 +130,13 @@ Node* DFS(Node* initial, int* cont){
         Node* result = DFS(adj_node, cont);
     
         return result;
+        List* adj = get_adj_nodes(current);
+        Node* adj_node = first(adj);
         
+        while(adj_node != NULL) {
+            push(stack, adj_node);
+            adj_node = next(adj);
+        } 
         adj_node = next(adj);
     }
     
