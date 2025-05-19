@@ -129,7 +129,7 @@ Node* DFS(Node* initial, int* cont) {
 
         if (!is_valid(current)) {
             continue;
-
+        }
         if (is_final(current)) {
             return current;
         }
