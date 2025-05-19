@@ -35,8 +35,8 @@ Node* read_file (char* file_name){
 
 void print_node(Node* n){
     int i,j;
-    for(i=0;i<9;i++){
-       for(j=0;j<9;j++)
+    for(i=0 ; i<9 ; i++){
+       for(j=0 ; j<9 ; j++)
           printf("%d ", n->sudo[i][j]);
        printf("\n");
     }
@@ -45,35 +45,35 @@ void print_node(Node* n){
 
 int is_valid(Node* n){
     for(int i = 0; i < 9; i++) {
-        int seen[10] = {0};
+        int visto[10] = {0};
         for(int j = 0; j < 9; j++) {
             int num = n->sudo[i][j];
             if(num != 0) {
-                if(seen[num]) return 0;
-                seen[num] = 1;
+                if(visto[num]) return 0;
+                visto[num] = 1;
             }
         }
     }
     for(int j = 0; j < 9; j++) {
-        int seen[10] = {0};
+        int visto[10] = {0};
         for(int i = 0; i < 9; i++) {
             int num = n->sudo[i][j];
             if(num != 0) {
-                if(seen[num]) return 0;
-                seen[num] = 1;
+                if(visto[num]) return 0;
+                visto[num] = 1;
             }
         }
     }
 
     for(int k = 0; k < 9; k++) {
-        int seen[10] = {0};
+        int visto[10] = {0};
         for(int p = 0; p < 9; p++) {
             int i = 3*(k/3) + (p/3);
             int j = 3*(k%3) + (p%3);
             int num = n->sudo[i][j];
             if(num != 0) {
-                if(seen[num]) return 0;
-                seen[num] = 1;
+                if(visto[num]) return 0;
+                visto[num] = 1;
             }
         }
     }
@@ -127,12 +127,8 @@ Node* DFS(Node* initial, int* cont) {
 
         (*cont)++;
 
-        if (!is_valid(current)) {
-            continue;
-        }
-        if (is_final(current)) {
-            return current;
-        }
+        if (!is_valid(current)) continue;
+        if (is_final(current)) return current;
 
         List* adj = get_adj_nodes(current);
         Node* adj_node = first(adj);
