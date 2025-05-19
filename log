@@ -34,3 +34,26 @@ sudoku.c:137:18: error: 'stack' undeclared (first use in this function)
              push(stack, adj_node);
                   ^~~~~
 17c34e5
+Sun, May 18, 2025 11:42:19 PM: 
+ sudoku.c | 22 +++++++++++++---------
+ 1 file changed, 13 insertions(+), 9 deletions(-)
+Compilation failed
+test.c: In function 'DFS':
+test.c:245:5: error: 'main' is normally a non-static function [-Werror=main]
+ int main( int argc, char *argv[] ) {
+     ^~~~
+test.c:262:1: error: expected declaration or statement at end of input
+ }
+ ^
+test.c:262:1: error: control reaches end of non-void function [-Werror=return-type]
+ }
+ ^
+At top level:
+test.c:245:5: error: 'main' defined but not used [-Werror=unused-function]
+ int main( int argc, char *argv[] ) {
+     ^~~~
+test.c:7:8: error: '_strdup' defined but not used [-Werror=unused-function]
+ char * _strdup(const char * str) {
+        ^~~~~~~
+cc1.exe: all warnings being treated as errors
+d77da2d
