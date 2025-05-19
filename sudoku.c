@@ -118,8 +118,25 @@ int is_final(Node* n){
 }
 
 Node* DFS(Node* initial, int* cont){
-  return NULL;
+    if(is_final(initial)) {
+        return initial;
+    }
+    
+    List* adj = get_adj_nodes(initial);
+    Node* adj_node = first(adj);
+    
+    while(adj_node != NULL) {
+        (*cont)++;
+        Node* result = DFS(adj_node, cont);
+    
+        return result;
+        
+        adj_node = next(adj);
+    }
+    
+    return NULL;
 }
+
 
 
 
