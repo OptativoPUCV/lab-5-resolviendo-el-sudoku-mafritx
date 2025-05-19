@@ -138,7 +138,7 @@ Node* DFS(Node* initial, int* cont) {
         Node* adj_node = first(adj);
 
         while (adj_node != NULL) {
-            push(stack, adj_node); 
+            pushFront(stack, adj_node); 
             adj_node = next(adj);
         }
         free(adj);
